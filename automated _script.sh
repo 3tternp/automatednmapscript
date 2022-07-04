@@ -29,6 +29,7 @@ echo -e "22. NTP mode 6 Scanner"
 echo -e "23. NTP moonlight "
 echo -e "24. oracle TNS poisoning:""\033[35m"
 echo -e "25. XDMCP Discover: ""\033[34m"
+echo -e "26. SSH weak hashing algorithm""\033[36m"
 echo -e "Enter your  choice : $count""\033[39m"
 
 read count
@@ -176,6 +177,12 @@ elif [ $count -eq 25 ]
 then
 read -p "nmap -sU -p 177 --script xdmcp-discover" ip
 nmap -sU -p 177 --script xdmcp-discover $ip
+exit
+
+elif [ $count -eq 26 ]
+then
+read -p "nmap -Pn -p 22 --script ssh2-enum-algos " ip
+nmap -Pn -p 22 --script ssh2-enum-algos  $ip
 exit
 
 else 
