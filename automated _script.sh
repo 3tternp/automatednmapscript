@@ -30,6 +30,7 @@ echo -e "23. NTP moonlight "
 echo -e "24. oracle TNS poisoning:""\033[35m"
 echo -e "25. XDMCP Discover: ""\033[34m"
 echo -e "26. SSH weak hashing algorithm""\033[36m"
+echo -e "27. Check all the CVE vulnerabilities""\033[36m"
 echo -e "Enter your  choice : $count""\033[39m"
 
 read count
@@ -183,6 +184,12 @@ elif [ $count -eq 26 ]
 then
 read -p "nmap -Pn -p 22 --script ssh2-enum-algos " ip
 nmap -Pn -p 22 --script ssh2-enum-algos  $ip
+exit
+
+elif [ $count -eq 27 ]
+then
+read -p "nmap -sV --script vulners " ip
+nmap -sV --script vulners $ip
 exit
 
 else 
